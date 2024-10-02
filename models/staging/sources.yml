@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: northwind
+    database: basic-buttress-436018-j2
+    schema: erp_northwind
+    tables:
+      - name: Orders
+      - name: Customers
+      - name: OrderDetails
