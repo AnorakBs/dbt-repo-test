@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: stg_products
+    columns:
+      - name: ProductID
+        description: Unique ID
+        tests:
+          - not_null
+          
