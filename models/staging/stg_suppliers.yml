@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_suppliers
+    description: stg_suppliers
+    columns:
+      - name: ProductID
+        description: Unique ID
+        tests:
+          - not_null
+          
