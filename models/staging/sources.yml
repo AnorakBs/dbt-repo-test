@@ -2,9 +2,22 @@ version: 2
 
 sources:
   - name: northwind
+    description: Data from northwind ERP
     database: basic-buttress-436018-j2
     schema: erp_northwind
     tables:
       - name: Orders
+        description: '{{doc("order_docs")}}'
+        columns:
+          - name: OrderID
+            description: Unique ID for this table
+
       - name: Customers
+        columns:
+          - name: CustomerID
+            description: Unique ID for this table
+            
       - name: OrderDetails
+      - name: Categories
+      - name: Products
+      - name: Suppliers
