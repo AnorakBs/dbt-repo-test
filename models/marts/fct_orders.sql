@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized='incremental'
+    )
+}}
+
 with
     customers as (
         select *
@@ -8,6 +14,11 @@ with
         select
         *
         from {{ref("stg_orders")}}
+ --       {% if is_incremental() %}
+    
+  --  where OrderDate >= (select max(OrderDate) from {{ this }} )
+
+ --       {% endif %}
     )
 
     select

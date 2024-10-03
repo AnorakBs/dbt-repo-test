@@ -7,11 +7,23 @@ sources:
     schema: erp_northwind
     tables:
       - name: Orders
+        freshness: # make this a little more strict
+          warn_after: {count: 5000, period: day}
+          error_after: {count: 10000, period: day}
+        loaded_at_field: cast(OrderDate as timestamp)
+
         description: '{{doc("order_docs")}}'
         columns:
           - name: OrderID
             description: Unique ID for this table
-
+            tests:
+              - unique
+              - not_null
+          - name: CustomerID
+            tests:
+              - relationships:
+                  field: CustomerID
+                  to: ref('stg_customers')
       - name: Customers
         columns:
           - name: CustomerID
