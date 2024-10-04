@@ -4,7 +4,7 @@ models:
   - name: stg_suppliers
     description: stg_suppliers
     columns:
-      - name: ProductID
+      - name: SupplierID
         description: Unique ID
         tests:
           - not_null
